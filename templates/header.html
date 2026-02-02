@@ -8,7 +8,14 @@
     />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Nikhils's Blog</title>
+    <title>
+  {% if current_user.is_authenticated %}
+    {{ current_user.name }}'s Blog
+  {% else %}
+    Blog Page
+  {% endif %}
+</title>
+
     {% block styles %}
     <!-- Load Bootstrap-Flask CSS here -->
     {{ bootstrap.load_css() }}
